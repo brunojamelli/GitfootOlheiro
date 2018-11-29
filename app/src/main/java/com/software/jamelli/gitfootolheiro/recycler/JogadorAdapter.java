@@ -2,6 +2,7 @@ package com.software.jamelli.gitfootolheiro.recycler;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,12 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.software.jamelli.gitfootolheiro.modelo.Jogador;
 import com.software.jamelli.gitfootolheiro.R;
+import com.software.jamelli.gitfootolheiro.util.GlideUtil;
+
 import java.util.List;
+
+import br.com.concrete.canarinho.formatador.Formatador;
+import br.com.concrete.canarinho.formatador.FormatadorValor;
 
 public class JogadorAdapter extends RecyclerView.Adapter{
     Context context;
@@ -32,9 +38,10 @@ public class JogadorAdapter extends RecyclerView.Adapter{
         boolean photo = jchoise.getPhotoUrl() != null;
         if(photo){
             jholder.photoImageView.setVisibility(View.VISIBLE);
-            Glide.with(jholder.photoImageView.getContext())
-                    .load(jchoise.getPhotoUrl())
-                    .into(jholder.photoImageView);
+            //Glide.with(jholder.photoImageView.getContext())
+            //        .load(jchoise.getPhotoUrl())
+            //        .into(jholder.photoImageView);
+            GlideUtil.loadProfileIcon(jchoise.getPhotoUrl(),jholder.photoImageView);
         }else{
             jholder.photoImageView.setVisibility(View.GONE);
         }
@@ -48,8 +55,11 @@ public class JogadorAdapter extends RecyclerView.Adapter{
         }else{
             jholder.peTextView.setText("ambidestro");
         }
-        jholder.psTextView.setText("Pretenção salarial "+String.valueOf(jchoise.getPretencao_salarial()));
-        jholder.pcTextView.setText("Pretenção Contratual "+String.valueOf(jchoise.getPretencao_contratual()));
+        String svalue = Formatador.VALOR_COM_SIMBOLO.formata(String.valueOf(jchoise.getPretencao_salarial()));
+        String cvalue = Formatador.VALOR_COM_SIMBOLO.formata(String.valueOf(jchoise.getPretencao_contratual()));
+        Log.i("formatado",svalue);
+        jholder.psTextView.setText(svalue);
+        jholder.pcTextView.setText(cvalue);
         //frutaholder.textViewNome.setText(frutaescolhida.getNome());
         //frutaholder.img.setImageResource(frutaescolhida.getImg());
     }

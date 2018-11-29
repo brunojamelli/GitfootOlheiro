@@ -22,6 +22,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.software.jamelli.gitfootolheiro.R;
 import com.software.jamelli.gitfootolheiro.modelo.Jogador;
+import com.software.jamelli.gitfootolheiro.modelo.Olheiro;
 import com.software.jamelli.gitfootolheiro.util.FirebaseUtil;
 
 import java.util.UUID;
@@ -40,7 +41,7 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b) {
         View v = inflater.inflate(R.layout.fragment_cadastro, container, false);
-        btn_cad = v.findViewById(R.id.btnCadJogador);
+        btn_cad = v.findViewById(R.id.btnCadOlheiro);
         initViewObjects(v);
         initDBandAuth();
         return v;
@@ -72,14 +73,10 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
 
     private void initDBandAuth(){
         fdatabase = FirebaseDatabase.getInstance();
-        dataref = fdatabase.getReference().child("jogador");;
+        dataref = fdatabase.getReference().child("olheiro");;
     }
 
     public void clearFields(){
-        /*sp_pe.setSelection(1);
-        sp_pos.setSelection(1);
-        et_ps.setText("");
-        et_pc.setText("");*/
         et_gp.setText("");
         et_emp.setText("");
         et_time.setText("");
@@ -106,6 +103,14 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
                     }
                     Log.i("cadid",FirebaseUtil.getCurrentUserId());
                     //instanciar olheiro e colocar ele no firebase
+                    Olheiro ol = new Olheiro(
+                            //UUID.randomUUID().toString(),
+                            FirebaseUtil.getCurrentUserId(),
+                            FirebaseUtil.getOlheiro().getPhotoUrl(),
+                            FirebaseUtil.getOlheiro().getEmail(),
+                            FirebaseUtil.getOlheiro().getNome(),
+                            time,empresa,grupo
+                    );
                     /*Jogador j = new Jogador(
                             UUID.randomUUID().toString(),
                             FirebaseUtil.getJogador().getPhotoUrl(),
@@ -118,8 +123,9 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
                             Double.parseDouble(et_ps.getText().toString()),
                             Double.parseDouble(et_pc.getText().toString())
                     );
-                    dataref.child(j.getUid()).setValue(j);
-                    clearFields();*/
+                    */
+                    dataref.child(ol.getUid()).setValue(ol);
+                    clearFields();
                     texto = "Cadastro realizado com sucesso";
                 }
 
