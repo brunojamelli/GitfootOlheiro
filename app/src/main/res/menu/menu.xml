@@ -2,6 +2,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_first_fragment"
+
             android:title="Inicio"
             android:checked="true"/>
 
@@ -10,16 +11,20 @@
             android:title="Adicionar informações" />
 
         <item
-            android:id="@+id/nav_fourth_fragment"
-            android:title="Editar informações" />
+            android:id="@+id/nav_third_fragment"
+            android:title="Olheiros" />
 
         <item
-            android:id="@+id/nav_third_fragment"
-            android:title="Ver olheiros" />
+            android:id="@+id/nav_jog_fragment"
+            android:title="Outros Jogadores" />
+
+        <item
+            android:id="@+id/nav_fourth_fragment"
+            android:title="Enviar sua localização" />
 
         <item
             android:id="@+id/nav_fifth_fragment"
-            android:title="Enviar sua localização" />
+            android:title="Mapear Olheiros" />
 
         <item
             android:id="@+id/nav_sair"

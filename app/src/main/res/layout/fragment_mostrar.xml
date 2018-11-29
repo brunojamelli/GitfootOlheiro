@@ -6,25 +6,30 @@
     android:layout_height="match_parent"
     android:layout_marginTop="100dp"
     android:paddingBottom="10dp"
-    tools:context=".JogadorActivity">
+    tools:context=".OlheiroActivity"
+    android:paddingEnd="20dp"
+    android:paddingStart="20dp">
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Escolha como ordenar" />
+        android:text="Escolha como ordenar"
+        android:layout_weight="0.5"
+        />
 
     <Spinner
         android:id="@+id/spOrd"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"/>
+        android:paddingBottom="5dp"
+        android:layout_weight="0.5"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="9">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/screenPlayers"

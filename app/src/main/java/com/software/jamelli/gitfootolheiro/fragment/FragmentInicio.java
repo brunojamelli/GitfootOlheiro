@@ -9,10 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.software.jamelli.gitfootolheiro.util.FirebaseUtil;
-import de.hdodenhof.circleimageview.CircleImageView;
 import com.software.jamelli.gitfootolheiro.R;
+import com.software.jamelli.gitfootolheiro.util.FirebaseUtil;
+import com.software.jamelli.gitfootolheiro.util.GlideUtil;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FragmentInicio extends Fragment{
     private TextView txInicio;
@@ -28,13 +29,10 @@ public class FragmentInicio extends Fragment{
         View v = inflater.inflate(R.layout.fragment_inicio, container, false);
         txInicio = v.findViewById(R.id.tv_bv);
         profileFoto = v.findViewById(R.id.profile_image);
-        photoUrl = FirebaseUtil.getOlheiro().getPhotoUrl();
-        nome = FirebaseUtil.getOlheiro().getNome();
+        photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
+        nome = FirebaseUtil.getJogador().getNome();
         txInicio.setText(getString(R.string.bem_vindo) +" "+nome);
-        Glide.with(profileFoto.getContext())
-                    .load(photoUrl)
-                    .into(profileFoto);
-
+        GlideUtil.loadProfileIcon(photoUrl,profileFoto);
 
 
         return v;

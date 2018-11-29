@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.software.jamelli.gitfootolheiro.R;
 
+
 public class FragmentLocalizacao extends Fragment{
     public FragmentLocalizacao(){
 

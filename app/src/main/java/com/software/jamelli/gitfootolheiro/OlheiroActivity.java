@@ -10,23 +10,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
 import com.firebase.ui.auth.AuthUI;
 import com.software.jamelli.gitfootolheiro.fragment.*;
+import com.software.jamelli.gitfootolheiro.util.FirebaseUtil;
+import com.software.jamelli.gitfootolheiro.util.GlideUtil;
 
 public class OlheiroActivity extends AppCompatActivity {
     private DrawerLayout drawer;
     private NavigationView navigationView;
+    private ImageView im_logo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_olheiro);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        //im_logo = findViewById(R.id.logo_menu);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+//        GlideUtil.loadProfileIcon(FirebaseUtil.getOlheiro().getPhotoUrl(),im_logo);
 
         navigationView = findViewById(R.id.nav_view);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new FragmentInicio()).commit();

@@ -6,12 +6,12 @@
     android:background="@android:color/background_light"
     android:layout_marginTop="100dp"
     android:paddingBottom="15dp"
-    tools:context=".JogadorActivity">
+    tools:context=".OlheiroActivity">
 
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tela Buscar" />
+        android:text="Tela Mapeamento" />
 </LinearLayout>

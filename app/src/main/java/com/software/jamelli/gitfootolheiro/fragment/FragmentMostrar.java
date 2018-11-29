@@ -13,19 +13,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.software.jamelli.gitfootolheiro.R;
 import com.software.jamelli.gitfootolheiro.modelo.Jogador;
 import com.software.jamelli.gitfootolheiro.recycler.JogadorAdapter;
+import com.software.jamelli.gitfootolheiro.util.FirebaseUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.software.jamelli.gitfootolheiro.R;
 
 public class FragmentMostrar extends Fragment{
     private List<Jogador> jogadores;
@@ -36,7 +36,7 @@ public class FragmentMostrar extends Fragment{
     private DatabaseReference dataref;
     private Spinner sp_ord;
     private static final String[] ORDENADORES = new String[]
-            {"nome","pe_melhor","posicao"};
+            {"Nome","Pé melhor","Posição"};
     public FragmentMostrar() {
     }
 
@@ -55,6 +55,7 @@ public class FragmentMostrar extends Fragment{
         ArrayAdapter adp = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ORDENADORES);
         adp.setDropDownViewResource(android.R.layout.simple_spinner_item);
         sp_ord.setAdapter(adp);
+
         jogadores = new ArrayList<>();
         adapter = new JogadorAdapter(getContext(),jogadores);
         rv.setAdapter(adapter);
@@ -62,10 +63,12 @@ public class FragmentMostrar extends Fragment{
         //((LinearLayoutManager) layout).setStackFromEnd(true);
         //((LinearLayoutManager) layout).setReverseLayout(false);
         rv.setLayoutManager(layout);
+        String ord = sp_ord.getSelectedItem().toString();
+        //readDatabaseClassified(ord);
     }
     public void initDBandAuth(){
-        fdatabase = FirebaseDatabase.getInstance();
-        dataref = fdatabase.getReference().child("jogador");
+
+        dataref = FirebaseUtil.getBaseRefJogador();
     }
     public void readDatabase(){
         clistener = new ChildEventListener() {
@@ -100,10 +103,15 @@ public class FragmentMostrar extends Fragment{
     }
 
     public void readDatabaseClassified(String classified){
-        if(classified == null){
-            classified = "nome";
+        String ordenador = "";
+        if(classified.equals("Nome")){
+            ordenador = "nome";
+        }else if(classified.equals("Pé melhor")){
+            ordenador = "pe_melhor";
+        }else{
+            ordenador = "posicao";
         }
-        Query read = dataref.child("jogador").orderByChild(classified);
+        Query read = dataref.child("jogador").orderByChild(ordenador);
         removeReadListener();
         read.addChildEventListener(clistener);
     }

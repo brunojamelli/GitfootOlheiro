@@ -2,10 +2,9 @@ package com.software.jamelli.gitfootolheiro.recycler;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jamelli.gitfootjogador.R;
+import com.software.jamelli.gitfootolheiro.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
