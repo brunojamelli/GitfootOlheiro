@@ -29,6 +29,7 @@ dependencies {
     //glide para carregar imagens
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'br.com.concrete:canarinho:2.0.0'
     //firebase
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-database:16.0.4'
