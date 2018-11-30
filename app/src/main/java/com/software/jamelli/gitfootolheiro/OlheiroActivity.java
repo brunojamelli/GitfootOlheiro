@@ -14,8 +14,6 @@ import android.widget.ImageView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.software.jamelli.gitfootolheiro.fragment.*;
-import com.software.jamelli.gitfootolheiro.util.FirebaseUtil;
-import com.software.jamelli.gitfootolheiro.util.GlideUtil;
 
 public class OlheiroActivity extends AppCompatActivity {
     private DrawerLayout drawer;
@@ -25,7 +23,7 @@ public class OlheiroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_olheiro);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         //im_logo = findViewById(R.id.logo_menu);
         setSupportActionBar(toolbar);
 
@@ -34,7 +32,7 @@ public class OlheiroActivity extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 //        GlideUtil.loadProfileIcon(FirebaseUtil.getOlheiro().getPhotoUrl(),im_logo);
-
+        toolbar.setTitle("Gitfoot");
         navigationView = findViewById(R.id.nav_view);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new FragmentInicio()).commit();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -42,41 +40,39 @@ public class OlheiroActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int idItem = menuItem.getItemId();
                 Fragment frags = null;
-
                 switch (idItem){
                     case R.id.nav_first_fragment:
                         frags = new FragmentInicio();
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
+                        toolbar.setTitle("Inicio");
                         break;
                     case R.id.nav_second_fragment:
+                        toolbar.setTitle("Adicionar Informações");
                         frags = new FragmentCadastro();
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_third_fragment:
+                        toolbar.setTitle("Mostrando Jogadores");
                         frags = new FragmentMostrar();
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_fourth_fragment:
-                        frags = new FragmentCadastro();
+                        toolbar.setTitle("Adicione sua localização");
+                        frags = new FragmentLocalizacao();
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_fifth_fragment:
-                        frags = new FragmentLocalizacao();
+                        toolbar.setTitle("Mapeando os Jogadores");
+                        frags = new FragmentMapeamento();
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_sair:
                         drawer.closeDrawer(GravityCompat.START);
                         AuthUI.getInstance().signOut(OlheiroActivity.this);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
                 }
                 if(idItem != R.id.nav_sair){
