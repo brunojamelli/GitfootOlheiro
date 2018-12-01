@@ -6,12 +6,42 @@
     android:background="@android:color/background_light"
     android:layout_marginTop="100dp"
     android:paddingBottom="15dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:orientation="vertical"
     tools:context=".OlheiroActivity">
 
-
-    <TextView
-        android:id="@+id/tv"
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mapa"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:layout_marginBottom="2dp"
+        tools:context=".OlheiroActivity" />
+    <Button
+        android:id="@+id/btnLocalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="9.2"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:text="Salvar Localização"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:layout_gravity="center"
+        />
+
+    <!--
+    com.google.android.material.button.MaterialButton
+        android:id="@+id/material_button"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tela enviar localização" />
+        android:layout_weigth="4.5"
+        android:text="@string/button_label_enabled"/>
+    -->
 </LinearLayout>
