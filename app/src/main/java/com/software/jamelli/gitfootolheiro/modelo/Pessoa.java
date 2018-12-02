@@ -1,10 +1,21 @@
 package com.software.jamelli.gitfootolheiro.modelo;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class Pessoa {
     private String photoUrl;
     private String email;
     private String nome;
     private String Uid;
+    private Localization localization;
+
+    public Localization getLocalization() {
+        return localization;
+    }
+
+    public void setLocalization(Localization localization) {
+        this.localization = localization;
+    }
 
     public String getUid() {
         return Uid;
@@ -53,5 +64,16 @@ public class Pessoa {
         this.email = email;
         this.nome = nome;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "photoUrl='" + photoUrl + '\'' +
+                ", email='" + email + '\'' +
+                ", nome='" + nome + '\'' +
+                ", Uid='" + Uid + '\'' +
+                ", localization=" + localization +
+                '}';
     }
 }

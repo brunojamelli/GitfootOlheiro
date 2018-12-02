@@ -62,7 +62,9 @@
         android:id="@+id/btnCadOlheiro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/fonte"
         android:text="Cadastrar Olheiro"
+        android:background="@drawable/botao_customizado"
         />
 
 </LinearLayout>

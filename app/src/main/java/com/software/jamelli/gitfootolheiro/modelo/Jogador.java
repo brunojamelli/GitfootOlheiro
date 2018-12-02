@@ -1,5 +1,7 @@
 package com.software.jamelli.gitfootolheiro.modelo;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class Jogador extends Pessoa{
     private String pe_melhor;
     private String posicao;
@@ -51,5 +53,13 @@ public class Jogador extends Pessoa{
 
     public void setPretencao_contratual(Double pretencao_contratual) {
         this.pretencao_contratual = pretencao_contratual;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "pe_melhor=" + pe_melhor + '\'' +
+                ", posicao='" + posicao + '\'' +
+                ", pretencao_salarial=" + pretencao_salarial +
+                ", pretencao_contratual=" + pretencao_contratual;
     }
 }
