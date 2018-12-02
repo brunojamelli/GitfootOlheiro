@@ -41,35 +41,36 @@ public class OlheiroActivity extends AppCompatActivity {
                 int idItem = menuItem.getItemId();
                 Fragment frags = null;
                 switch (idItem){
-                    case R.id.nav_first_fragment:
+                    case R.id.nav_home_fragment:
                         frags = new FragmentInicio();
                         drawer.closeDrawer(GravityCompat.START);
                         toolbar.setTitle("Inicio");
                         break;
-                    case R.id.nav_second_fragment:
+                    case R.id.nav_cadastro_fragment:
                         toolbar.setTitle("Adicionar Informações");
                         frags = new FragmentCadastro();
                         drawer.closeDrawer(GravityCompat.START);
                         break;
-
-                    case R.id.nav_third_fragment:
+                    case R.id.nav_localizacao_fragment:
+                        toolbar.setTitle("Salvar Localização");
+                        frags = new FragmentLocalizacao();
+                        drawer.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.nav_mostrar_fragment:
                         toolbar.setTitle("Mostrando Jogadores");
                         frags = new FragmentMostrar();
                         drawer.closeDrawer(GravityCompat.START);
                         break;
-
-                    case R.id.nav_fourth_fragment:
-                        toolbar.setTitle("Adicione sua localização");
-                        frags = new FragmentLocalizacao();
-                        drawer.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.nav_fifth_fragment:
+                    case R.id.nav_mapear_fragment:
                         toolbar.setTitle("Mapeando os Jogadores");
                         frags = new FragmentMapeamento();
                         drawer.closeDrawer(GravityCompat.START);
                         break;
-
+                    case R.id.nav_about_fragment:
+                        toolbar.setTitle("Sobre");
+                        frags = new FragmentMapeamento();
+                        drawer.closeDrawer(GravityCompat.START);
+                        break;
                     case R.id.nav_sair:
                         drawer.closeDrawer(GravityCompat.START);
                         AuthUI.getInstance().signOut(OlheiroActivity.this);
@@ -85,8 +86,5 @@ public class OlheiroActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
+    public void onBackPressed() { }
 }
