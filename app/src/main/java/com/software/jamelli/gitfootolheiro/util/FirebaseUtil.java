@@ -41,7 +41,10 @@ public class FirebaseUtil {
     public static Olheiro getOlheiro() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) return null;
-        return new Olheiro(user.getPhotoUrl().toString(), user.getEmail(), user.getDisplayName());
+        if (FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl() != null)
+            return new Olheiro(user.getPhotoUrl().toString(), user.getEmail(), user.getDisplayName());
+        else
+            return new Olheiro("", user.getEmail(), user.getDisplayName());
     }
 
     public static DatabaseReference getJogadorAtualRef() {

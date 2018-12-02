@@ -48,27 +48,12 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     }
 
     private void initViewObjects(View v){
-        //et_pe = v.findViewById(R.id.etPe);
-        //et_pisicao = v.findViewById(R.id.etPos);
         et_time = v.findViewById(R.id.etTime);
         et_emp = v.findViewById(R.id.etEmp);
         et_gp = v.findViewById(R.id.etGrupo);
         tela = v.findViewById(R.id.telaCad);
         btn_cad = v.findViewById(R.id.btnCadOlheiro);
         btn_cad.setOnClickListener(this);
-        //sp_pe = v.findViewById(R.id.spPe);
-        //sp_pos = v.findViewById(R.id.spPos);
-
-        /*
-        ArrayAdapter adp1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, PE_MELHOR);
-        adp1.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        sp_pe.setAdapter(adp1);
-
-        ArrayAdapter adp2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, POSICOES);
-        adp2.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        sp_pos.setAdapter(adp2);
-        */
-
     }
 
     private void initDBandAuth(){
@@ -85,48 +70,50 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(final View v) { //check for what button is pressed
         String texto="",time="",empresa="",grupo="";
-
+        String photoUrl = FirebaseUtil.getOlheiro().getPhotoUrl();
         switch (v.getId()) {
             case R.id.btnCadOlheiro:
                 if(et_time.getText().toString().equals("") || et_time.getText().toString().equals("") ||
                         et_time.getText().toString().equals("")){
                     texto = "Olheiro não pode ser cadastrado sem nenhuma informação";
                 }else{
-                    if(!et_time.getText().toString().equals("")){
-                        time = et_time.getText().toString();
+                    if(FirebaseUtil.getJogador().getNome() == null){
+                        Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
+                    }else {
+                        if(photoUrl == null){
+                            photoUrl = "";
+                        }else{
+                            if(!et_time.getText().toString().equals("")){
+                                time = et_time.getText().toString();
+                            }
+                            if(!et_gp.getText().toString().equals("")) {
+                                grupo = et_gp.getText().toString();
+                            }
+                            if(!et_gp.getText().toString().equals("")){
+                                empresa = et_emp.getText().toString();
+                            }
+                            Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
+                            Log.i("seila2", FirebaseUtil.getOlheiro().getNome());
+                            Log.i("seila3",FirebaseUtil.getOlheiro().getEmail());
+
+                            //instanciar olheiro e colocar ele no firebase
+                            Olheiro ol = new Olheiro(
+                                    //UUID.randomUUID().toString(),
+                                    FirebaseUtil.getCurrentUserId(),
+                                    FirebaseUtil.getOlheiro().getPhotoUrl(),
+                                    FirebaseUtil.getOlheiro().getEmail(),
+                                    FirebaseUtil.getOlheiro().getNome(),
+                                    time,empresa,grupo
+                            );
+
+                            dataref.child(ol.getUid()).setValue(ol);
+                            clearFields();
+                            texto = "Cadastro realizado com sucesso";
+                        }
                     }
-                    else if(!et_gp.getText().toString().equals("")) {
-                        grupo = et_gp.getText().toString();
-                    }
-                    else if(!et_gp.getText().toString().equals("")){
-                        empresa = et_emp.getText().toString();
-                    }
-                    Log.i("cadid",FirebaseUtil.getCurrentUserId());
-                    //instanciar olheiro e colocar ele no firebase
-                    Olheiro ol = new Olheiro(
-                            //UUID.randomUUID().toString(),
-                            FirebaseUtil.getCurrentUserId(),
-                            FirebaseUtil.getOlheiro().getPhotoUrl(),
-                            FirebaseUtil.getOlheiro().getEmail(),
-                            FirebaseUtil.getOlheiro().getNome(),
-                            time,empresa,grupo
-                    );
-                    /*Jogador j = new Jogador(
-                            UUID.randomUUID().toString(),
-                            FirebaseUtil.getJogador().getPhotoUrl(),
-                            FirebaseUtil.getJogador().getEmail(),
-                            FirebaseUtil.getJogador().getNome(),
-                            //et_pe.getText().toString(),
-                            sp_pe.getSelectedItem().toString(),
-                            sp_pos.getSelectedItem().toString(),
-                            //et_pisicao.getText().toString(),
-                            Double.parseDouble(et_ps.getText().toString()),
-                            Double.parseDouble(et_pc.getText().toString())
-                    );
-                    */
-                    dataref.child(ol.getUid()).setValue(ol);
-                    clearFields();
-                    texto = "Cadastro realizado com sucesso";
+
+
+
                 }
 
                 Snackbar.make(tela, texto, Snackbar.LENGTH_LONG).show();

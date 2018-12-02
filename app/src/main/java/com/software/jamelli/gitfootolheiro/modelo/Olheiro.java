@@ -1,7 +1,7 @@
 package com.software.jamelli.gitfootolheiro.modelo;
 
 public class Olheiro extends Pessoa {
-    private String time, empresa, empresario;
+    private String time, empresa, grupo;
 
     public Olheiro() { }
 
@@ -21,19 +21,19 @@ public class Olheiro extends Pessoa {
         this.empresa = empresa;
     }
 
-    public String getEmpresario() {
-        return empresario;
+    public String getGrupo() {
+        return grupo;
     }
 
-    public void setEmpresario(String empresario) {
-        this.empresario = empresario;
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 
-    public Olheiro(String uid,String photoUrl, String email, String nome, String time, String empresa, String empresario) {
+    public Olheiro(String uid,String photoUrl, String email, String nome, String time, String empresa, String grupo) {
         super(uid,photoUrl, email, nome);
         this.time = time;
         this.empresa = empresa;
-        this.empresario = empresario;
+        this.grupo = grupo;
     }
 
     public Olheiro(String photoUrl, String email, String nome) {

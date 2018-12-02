@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
                                     .setAvailableProviders(providers)
+                                    .setLogo(R.drawable.ic_soccer)
                                     .build(),
                             LOGIN_CODE);
                 }
