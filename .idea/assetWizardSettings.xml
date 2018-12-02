@@ -19,8 +19,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Imagens/tads.png" />
-                                      <entry key="outputName" value="tads_logo" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Área de Trabalho/Icons/ic_dashboard_black_48dp.png" />
+                                      <entry key="outputName" value="icon_dash" />
                                     </map>
                                   </option>
                                 </PersistentState>

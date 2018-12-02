@@ -21,4 +21,6 @@
     <string name="action_example">Example action</string>
     <string name="bem_vindo">Bem Vindo </string>
     <string name="title_activity_maps">Map</string>
+    <string name="about">Este app visa fazer com que o olheiro tenha acesso aos dados dos jogadores cadastrados no sistema,
+    bem como para que ele possa atualizar/salvar as suas proprias informações</string>
 </resources>

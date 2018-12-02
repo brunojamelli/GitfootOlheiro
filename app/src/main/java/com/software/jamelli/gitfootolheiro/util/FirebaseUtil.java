@@ -32,7 +32,10 @@ public class FirebaseUtil {
     public static Jogador getJogador() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) return null;
-        return new Jogador(user.getPhotoUrl().toString(), user.getEmail(), user.getDisplayName());
+        if (FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl() != null)
+            return new Jogador(user.getPhotoUrl().toString(), user.getEmail(), user.getDisplayName());
+        else
+            return new Jogador("", user.getEmail(), user.getDisplayName());
     }
 
     public static Olheiro getOlheiro() {

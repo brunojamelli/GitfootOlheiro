@@ -25,47 +25,22 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FragmentInicio extends Fragment{
     private TextView txInicio;
-    private CircleImageView profileFoto;
-    private String nome;
-    private String photoUrl;
+
     private FirebaseDatabase fdatabase;
     private DatabaseReference dataref;
-    public static String UID="";
     public FragmentInicio() {
     }
     public void initDB(){
         fdatabase = FirebaseDatabase.getInstance();
         dataref = fdatabase.getReference().child("olheiro");
     }
-    public void seachKey(String email){
-        Query query1 = dataref.child("email").equalTo(email).limitToFirst(1);
-        query1.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                UID = dataSnapshot.getValue(Olheiro.class).getUid();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b) {
         View v = inflater.inflate(R.layout.fragment_inicio, container, false);
         txInicio = v.findViewById(R.id.tv_bv);
-        profileFoto = v.findViewById(R.id.profile_image);
-        photoUrl = FirebaseUtil.getOlheiro().getPhotoUrl();
-
-        nome = FirebaseUtil.getOlheiro().getNome();
-        txInicio.setText(getString(R.string.bem_vindo) +" "+nome);
-        GlideUtil.loadProfileIcon(photoUrl,profileFoto);
-        initDB();
-        UID = FirebaseUtil.getCurrentUserId();
-        //seachKey(FirebaseUtil.getOlheiro().getEmail());
-        Log.i("meuid",UID);
+        txInicio.setText("Opa");
         return v;
     }
 }
