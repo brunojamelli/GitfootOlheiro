@@ -42,7 +42,7 @@ public class FragmentMapeamento extends Fragment implements OnMapReadyCallback {
     private FirebaseDatabase fdatabase;
     private DatabaseReference dataref;
     private ArrayList<Jogador> mUsersDataset;
-    public static List<LatLng> locals;
+    public static List<LatLng> locals = new ArrayList<>();
     private final int CODE_HEAT_MAP = 59;
 
     public static String TAG = "lista";
@@ -54,9 +54,10 @@ public class FragmentMapeamento extends Fragment implements OnMapReadyCallback {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b) {
+        Log.i("criou", "entruo no on create");
         View v = inflater.inflate(R.layout.fragment_mapeamento, container, false);
         initDBandAuth();
-        locals = new ArrayList<>();
+
         dataref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -70,19 +71,21 @@ public class FragmentMapeamento extends Fragment implements OnMapReadyCallback {
                         double lng = snap.child("localization").getValue(Localization.class).getLongitude();
                         FragmentMapeamento.locals.add(new LatLng(lat,lng));
                         Log.i("lat", String.valueOf(lat));
-
                     }
                 }
+                Log.d("lista1", locals.toString());
+                addHeatMap(FragmentMapeamento.locals);
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-        //addHeatMap();
+
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.mapa2);
         mapFragment.getMapAsync(this);
-        Log.d("lista2", locals.toString());
+
         return v;
     }
 
@@ -91,7 +94,8 @@ public class FragmentMapeamento extends Fragment implements OnMapReadyCallback {
         dataref = FirebaseUtil.getBaseRefJogador();
     }
 
-    public void addHeatMap(){
+    public void addHeatMap(List<LatLng> pontos){
+        Log.d("lista2", pontos.toString());
         mProvider = new HeatmapTileProvider.Builder()
                 .data(locals)
                 .build();
