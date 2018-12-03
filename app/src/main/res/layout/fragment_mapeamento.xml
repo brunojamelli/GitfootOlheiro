@@ -6,12 +6,20 @@
     android:background="@android:color/background_light"
     android:layout_marginTop="100dp"
     android:paddingBottom="15dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:orientation="vertical"
     tools:context=".OlheiroActivity">
 
-
-    <TextView
-        android:id="@+id/tv"
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mapa2"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tela Mapeamento" />
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:layout_marginBottom="2dp"
+        tools:context=".OlheiroActivity" />
+
 </LinearLayout>
