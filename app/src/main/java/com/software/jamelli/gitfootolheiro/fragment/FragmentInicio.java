@@ -39,8 +39,6 @@ public class FragmentInicio extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b) {
         View v = inflater.inflate(R.layout.fragment_inicio, container, false);
-        txInicio = v.findViewById(R.id.tv_bv);
-        txInicio.setText("Opa");
         return v;
     }
 }

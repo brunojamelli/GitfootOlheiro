@@ -18,8 +18,13 @@
         android:layout_marginBottom="35dp"
         android:layout_weight="0.5"
         android:paddingBottom="10dp"
-        android:text="@string/bem_vindo"
+        android:text="Bem Vindo Olheiro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:paddingTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/olheiro"/>
 
 </android.support.constraint.ConstraintLayout>

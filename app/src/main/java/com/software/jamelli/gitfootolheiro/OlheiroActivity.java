@@ -36,11 +36,12 @@ public class OlheiroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_olheiro);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Gitfoot Olheiro");
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        toolbar.setTitle("Gitfoot");
+
         navigationView = findViewById(R.id.nav_view);
 
         //codigo para colocar os dados do usuario no navegation drawer
