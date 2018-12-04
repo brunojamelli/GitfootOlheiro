@@ -38,9 +38,6 @@ public class JogadorAdapter extends RecyclerView.Adapter{
         boolean photo = jchoise.getPhotoUrl() != null;
         if(photo){
             jholder.photoImageView.setVisibility(View.VISIBLE);
-            //Glide.with(jholder.photoImageView.getContext())
-            //        .load(jchoise.getPhotoUrl())
-            //        .into(jholder.photoImageView);
             if(jchoise.getPhotoUrl().isEmpty()){
                 String url = "https://raw.githubusercontent.com/google/material-design-icons/master/action/2x_web/ic_android_black_48dp.png";
                 GlideUtil.loadProfileIcon(url,jholder.photoImageView);
@@ -62,13 +59,11 @@ public class JogadorAdapter extends RecyclerView.Adapter{
         }else{
             jholder.peTextView.setText("ambidestro");
         }
-        String svalue = Formatador.VALOR_COM_SIMBOLO.formata(String.valueOf(jchoise.getPretencao_salarial()));
-        String cvalue = Formatador.VALOR_COM_SIMBOLO.formata(String.valueOf(jchoise.getPretencao_contratual()));
+        String svalue = "pretenção salarial "+Formatador.VALOR_COM_SIMBOLO.formata(String.valueOf(jchoise.getPretencao_salarial()));
+        String cvalue = "valor contrato "+Formatador.VALOR_COM_SIMBOLO.formata(String.valueOf(jchoise.getPretencao_contratual()));
         Log.i("formatado",svalue);
         jholder.psTextView.setText(svalue);
         jholder.pcTextView.setText(cvalue);
-        //frutaholder.textViewNome.setText(frutaescolhida.getNome());
-        //frutaholder.img.setImageResource(frutaescolhida.getImg());
     }
 
     @Override

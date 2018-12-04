@@ -35,7 +35,9 @@
             android:layout_height="192dp"
             android:src="@drawable/tads_logo"
             app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
+            app:civ_border_width="2dp"
+            android:layout_gravity="center"
+            android:paddingBottom="10dp"/>
 
         <TextView
             android:id="@+id/nomeTextView"
@@ -43,45 +45,51 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            tools:text="Text" />
+            tools:text="Text"
+            android:layout_gravity="left"/>
 
         <TextView
             android:id="@+id/emailTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            tools:text="Text"/>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Text"
+            android:layout_gravity="left"/>
 
         <TextView
             android:id="@+id/peTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            tools:text="Text"/>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Text"
+            android:layout_gravity="left"/>
 
         <TextView
             android:id="@+id/posicaoTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            tools:text="Text"/>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Text"
+            android:layout_gravity="left"/>
         <TextView
             android:id="@+id/psTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            tools:text="Data"/>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Data"
+            android:layout_gravity="left"/>
         <TextView
             android:id="@+id/pcTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            tools:text="Text"/>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Text"
+            android:layout_gravity="left"/>
 
     </LinearLayout>
 
