@@ -37,7 +37,7 @@ public class FragmentMostrar extends Fragment{
     private DatabaseReference dataref;
     private Spinner sp_ord;
     private static final String[] ORDENADORES = new String[]
-            {"Nome","Pé melhor","Posição"};
+            {"Nome","Salario","Posição"};
     public FragmentMostrar() {
     }
 
