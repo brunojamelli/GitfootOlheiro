@@ -17,8 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:text="Cadastro de olheiro"
-        android:textStyle="bold" />
+        android:text="Adicione Suas Informações"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView
         android:id="@+id/textView2"

@@ -54,8 +54,8 @@ public class FragmentMostrar extends Fragment{
     public void initViewObjects(View v){
         rv = v.findViewById(R.id.screenPlayers);
         sp_ord = v.findViewById(R.id.spOrd);
-        ArrayAdapter adp = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ORDENADORES);
-        adp.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        ArrayAdapter adp = new ArrayAdapter<String>(getActivity(), R.layout.spinner_item, ORDENADORES);
+        adp.setDropDownViewResource(R.layout.spinner_item);
         sp_ord.setAdapter(adp);
 
         jogadores = new ArrayList<>();
