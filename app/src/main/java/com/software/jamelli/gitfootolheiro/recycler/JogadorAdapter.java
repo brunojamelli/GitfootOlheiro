@@ -38,9 +38,12 @@ public class JogadorAdapter extends RecyclerView.Adapter{
         boolean photo = jchoise.getPhotoUrl() != null;
         if(photo){
             jholder.photoImageView.setVisibility(View.VISIBLE);
-            if(jchoise.getPhotoUrl().isEmpty()){
-                String url = "https://raw.githubusercontent.com/google/material-design-icons/master/action/2x_web/ic_android_black_48dp.png";
-                GlideUtil.loadProfileIcon(url,jholder.photoImageView);
+            if(jchoise.getEmail().equals("cr7@gmail.com")){
+                jholder.photoImageView.setImageResource(R.drawable.cr7);
+            }else if(jchoise.getEmail().equals("modric@gmail.com")){
+                jholder.photoImageView.setImageResource(R.drawable.modric);
+            }else if(jchoise.getPhotoUrl().isEmpty()){
+                jholder.photoImageView.setImageResource(R.drawable.player2);
             }
             else{
                 GlideUtil.loadProfileIcon(jchoise.getPhotoUrl(),jholder.photoImageView);
