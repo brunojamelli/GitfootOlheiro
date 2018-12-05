@@ -64,7 +64,7 @@ public class FragmentLocalizacao extends Fragment implements View.OnClickListene
                 double longt = myLocation.getLongitude();
                 dataref.child(FirebaseUtil.getCurrentUserId()).child("localization").child("latitude").setValue(lat);
                 dataref.child(FirebaseUtil.getCurrentUserId()).child("localization").child("longitude").setValue(longt);
-                Toast.makeText(getActivity(),"clicou",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Localização salva",Toast.LENGTH_SHORT).show();
                 Log.i("local",myLocation.toString());
                 break;
         }

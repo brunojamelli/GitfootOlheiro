@@ -7,9 +7,10 @@
     android:paddingBottom="15dp"
     tools:context=".OlheiroActivity"
     android:id="@+id/telaCad"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
     >
+
 
     <TextView
         android:id="@+id/tv"
@@ -67,5 +68,4 @@
         android:text="Cadastrar Olheiro"
         android:background="@drawable/botao_customizado"
         />
-
 </LinearLayout>

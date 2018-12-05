@@ -9,17 +9,27 @@
     android:paddingEnd="30dp"
     android:paddingStart="30dp">
 
+    <ImageView
+        android:id="@+id/imsobre"
+        android:layout_width="197dp"
+        android:layout_height="197dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="62dp"
+        android:src="@drawable/camisa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_abaout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginBottom="35dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="281dp"
         android:layout_weight="0.5"
+        android:gravity="center"
         android:paddingBottom="10dp"
-        android:text="@string/about"
+        android:text="@string/sobre"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

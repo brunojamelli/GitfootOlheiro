@@ -19,8 +19,14 @@
     <string name="title_section3">Section 3</string>
 
     <string name="action_example">Example action</string>
-    <string name="bem_vindo">Bem Vindo </string>
     <string name="title_activity_maps">Map</string>
-    <string name="about">Este app visa fazer com que o olheiro tenha acesso aos dados dos jogadores cadastrados no sistema,
-    bem como para que ele possa atualizar/salvar as suas proprias informações</string>
+    <string name="sobre">
+        Aplicativo desenvolvido por Bruno Jamelli, desenvolvedor e criador da jamelli softwares.\nCredito dos icones coloridos para o site: <a href="https://www.flaticon.com">https://www.flaticon.com</a>\nContato \n
+        Facebook: <a href="https://www.facebook.com/brunogeek9">brunogeek9</a>\n
+        Github: <a href="https://github.com/brunogeek9">brunogeek9</a>\n
+    </string>
+    <string name="bem_vindo">
+        Bem Vindo Olheiro !!\nGerencie as suas informações pessoais, salve sua localização e localize jogadores.
+
+    </string>
 </resources>
